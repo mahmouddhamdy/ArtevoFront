@@ -4,12 +4,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class OrderService {
-  private DB_URL = 'https://angularproject-rokp.onrender.com/api/Order';
-  // private DB_URL = 'http://localhost:7010/api/Order';
-  constructor(private http: HttpClient) {}
-  CreateOrder(NewOrder: any) {
-    // console.log(NewOrder);
-    return this.http.post(this.DB_URL, NewOrder);
+   private DB_URL = 'https://angularproject-rokp.onrender.com/api/Order';
+ // private DB_URL = 'http://localhost:7010/api/Order';
+  constructor(private http: HttpClient) {};
+  CreateOrder(NewOrder:any){
+   // console.log(NewOrder);
+    return this.http.post(this.DB_URL ,NewOrder);
   }
   FreelancerOrders(freelancerID: any) {
     // console.log(freelancerID);

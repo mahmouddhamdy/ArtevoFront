@@ -122,17 +122,16 @@ export class ProfileClientUpdate implements OnInit {
     console.log(obj);
     this.userService.UpdateUser({ user: obj, type: 'Client' }).subscribe(
       (res) => {
+        let updatedUser = { ...this.tokenService.getUser(), ...obj };
+
+        this.tokenService.setUser(updatedUser);
+
+        this.goBackAndRefresh();
         console.log(res);
       },
       (error) => {
         console.log(error);
       }
     );
-
-    let updatedUser = { ...this.tokenService.getUser(), ...obj };
-
-    this.tokenService.setUser(updatedUser);
-
-    this.goBackAndRefresh();
   }
 }
